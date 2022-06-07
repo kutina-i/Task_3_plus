@@ -44,31 +44,31 @@ List::~List()
 
 List::Iterator::Iterator(const List& list) { buf = list.getBuffer(); count = list.getCount(); }
 
-//начать работу
+//РЅР°С‡Р°С‚СЊ СЂР°Р±РѕС‚Сѓ
 void List::Iterator::start()
 {
     p = buf;
     index = -1;
 }
-//проверка, все ли проитерировано
+//РїСЂРѕРІРµСЂРєР°, РІСЃРµ Р»Рё РїСЂРѕРёС‚РµСЂРёСЂРѕРІР°РЅРѕ
 bool List::Iterator::finish() const
 {
     return index >= count - 1;
 }
-//сдвинуть итератор на следующий элемент
+//СЃРґРІРёРЅСѓС‚СЊ РёС‚РµСЂР°С‚РѕСЂ РЅР° СЃР»РµРґСѓСЋС‰РёР№ СЌР»РµРјРµРЅС‚
 void List::Iterator::next()
 {
     p = p->next;
     index++;
 }
 
-//получить очередной элемент
+//РїРѕР»СѓС‡РёС‚СЊ РѕС‡РµСЂРµРґРЅРѕР№ СЌР»РµРјРµРЅС‚
 Node* List::Iterator::get()
 {
     return p;
 }
 
-//вставить элемент в позицию, отмеченную итератором
+//РІСЃС‚Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ РІ РїРѕР·РёС†РёСЋ, РѕС‚РјРµС‡РµРЅРЅСѓСЋ РёС‚РµСЂР°С‚РѕСЂРѕРј
 void List::addI(AIterator* index, int v)
 {
     Node* tmp = new Node;
@@ -92,7 +92,7 @@ void List::addI(AIterator* index, int v)
     }
 }
 
-//удалить элемент, отмеченный итератором
+//СѓРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚, РѕС‚РјРµС‡РµРЅРЅС‹Р№ РёС‚РµСЂР°С‚РѕСЂРѕРј
 void List::deleteI(AIterator* index)
 {
     Node* p = index->get();
@@ -107,7 +107,7 @@ Node* List::getBuffer() const
     return buffer;
 }
 
-//найти первое вхождение элемента в список, результат – итератор на найденный элемент
+//РЅР°Р№С‚Рё РїРµСЂРІРѕРµ РІС…РѕР¶РґРµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РІ СЃРїРёСЃРѕРє, СЂРµР·СѓР»СЊС‚Р°С‚ вЂ“ РёС‚РµСЂР°С‚РѕСЂ РЅР° РЅР°Р№РґРµРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚
 AIterator* List::searchFirst(int n)  const
 {
     Node* p = buffer->next;
@@ -134,13 +134,13 @@ AIterator* List::searchFirst(int n)  const
     return it;
 }
 
-//количество элементов в списке
+//РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РІ СЃРїРёСЃРєРµ
 int List::getCount() const
 {
     return count;
 }
 
-//сделать список пустым
+//СЃРґРµР»Р°С‚СЊ СЃРїРёСЃРѕРє РїСѓСЃС‚С‹Рј
 void List::makeEmpty()
 {
     Node* tmp = buffer;
@@ -155,13 +155,13 @@ void List::makeEmpty()
     delete n;
 }
 
-//проверка на пустоту
+//РїСЂРѕРІРµСЂРєР° РЅР° РїСѓСЃС‚РѕС‚Сѓ
 bool List::isEmpty() const
 {
     return count == 0;
 }
 
-//получить итератор на первый элемент списка
+//РїРѕР»СѓС‡РёС‚СЊ РёС‚РµСЂР°С‚РѕСЂ РЅР° РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР°
 AIterator* List::first() const
 {
     AIterator* it = new Iterator(*this);
